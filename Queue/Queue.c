@@ -20,11 +20,19 @@ int queue_push(Queue_t * q, void * d){
 
 	if(q->size == 0){
 		q->head = (QueueItem_t *) malloc( sizeof(QueueItem_t) );
+                if (q->head == NULL) {
+                    printf("\nERROR: Insufficient memory. Terminating...");
+                    exit(EXIT_FAILURE);
+                }
 		q->head->next = 0;
 		q->head->data = d;
 	}else{
 		tmp = q->head;
 		q->head = (QueueItem_t *) malloc( sizeof(QueueItem_t) );
+                if (q->head == NULL) {
+                    printf("\nERROR: Insufficient memory. Terminating...");
+                    exit(EXIT_FAILURE);
+                }
 		q->head->data = d;
 		q->head->next = tmp;
 	}
@@ -74,19 +82,15 @@ int queue_pop(Queue_t * q, queue_callback_func_pop cb){
 }
 
 void * queue_front(Queue_t * q){
-	QueueItem_t * next = q->head;
+	QueueItem_t * tmp = q->head;
 
 	if(q->size == 0) return( (void *)0);
 
-	if(q->size == 1){
-		return(q->head->data);
+	while(tmp->next){
+		tmp = tmp->next;
 	}
 
-	while(next->next){
-		next = next->next;
-	}
-
-	return( next->data );
+	return( tmp->data );
 }
 
 void queue_for_each(Queue_t * q, queue_callback_func cb){
