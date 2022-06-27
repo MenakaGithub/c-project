@@ -4,9 +4,9 @@
  * @author jelathro
  * @date 2/18/13
  * 
- * Print "Hello, World!" to the console
+ * Print "Hello, buddy!" to the console
  */
 int main(void){
-    printf("Hello, World2!\n");
+    printf("Hello, buddy!\n");
     return 0;
 }
