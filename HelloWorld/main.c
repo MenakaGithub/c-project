@@ -4,9 +4,12 @@
  * @author jelathro
  * @date 2/18/13
  * 
- * Print "Hello, World!" to the console
+ * Print "Hello, buddy!" to the console
  */
 int main(void){
-    printf("Hello, World!\n");
+ MenakaGithub-my-C-project
+    printf("Hello, buddy!\n");
+    printf("Hello, buddy!\n");
+ master
     return 0;
 }
